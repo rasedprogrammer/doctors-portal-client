@@ -1,20 +1,12 @@
 import React from "react";
 import Banner from "../Banner/Banner";
-import bannerBg from "../../../assets/images/bg.png";
+import InfoCards from "../InfoCard/InfoCards";
 
 const Home = () => {
 	return (
-		<div
-			className="mx-5"
-			style={{
-				backgroundImage: `url(${bannerBg})`,
-				backgroundPosition: `center`,
-				backgroundSize: `cover`,
-				backgroundRepeat: "no-repeat",
-				width: "100%",
-			}}
-		>
+		<div className="mx-5">
 			<Banner></Banner>
+			<InfoCards></InfoCards>
 		</div>
 	);
 };
