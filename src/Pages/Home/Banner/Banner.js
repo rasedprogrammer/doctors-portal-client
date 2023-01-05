@@ -16,7 +16,7 @@ const Banner = () => {
 			}}
 		>
 			<div className="hero-content flex-col lg:flex-row-reverse">
-				<img src={homeImg} className="rounded-lg  lg:w-1/2 shadow-2xl" alt="" />
+				<img src={homeImg} className="rounded-lg lg:w-1/2 shadow-2xl" alt="" />
 				<div>
 					<h1 className="text-5xl font-bold">Your New Smile Starts Here</h1>
 					<p className="py-6">
