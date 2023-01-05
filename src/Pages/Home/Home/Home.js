@@ -1,10 +1,10 @@
 import React from "react";
-import Testimonial from "../../Testimonial/Testimonial";
 import Banner from "../Banner/Banner";
 import Exceptional from "../Exceptional/Exceptional";
 import InfoCards from "../InfoCard/InfoCards";
 import MakeAppointment from "../MakeAppointment/MakeAppointment";
 import Services from "../Services/Services";
+import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
 	return (
