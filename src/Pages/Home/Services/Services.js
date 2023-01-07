@@ -30,7 +30,9 @@ const Services = () => {
 	];
 	return (
 		<div className="my-32 text-center">
-			<h3 className="text-xl text-success font-bold uppercase">Our Services</h3>
+			<h3 className="text-xl text-secondary font-bold uppercase">
+				Our Services
+			</h3>
 			<h2 className="text-4xl my-2">Services We Provide</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 drop-shadow-3xl">
 				{servicesData.map((service) => (

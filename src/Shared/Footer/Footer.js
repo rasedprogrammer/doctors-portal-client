@@ -38,7 +38,9 @@ const Footer = () => {
 			<div className="mt-16 text-center">
 				<p>
 					Copyright © {new Date().getFullYear()} - All right reserved by{" "}
-					<span className="text-success font-semibold">Doctors Portal Ltd</span>
+					<span className="text-secondary font-semibold">
+						Doctors Portal Ltd
+					</span>
 					.
 				</p>
 			</div>

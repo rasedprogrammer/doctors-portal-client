@@ -16,8 +16,8 @@ const MakeAppointment = () => {
 						className="lg:w-1/2 -mt-32 hidden md:block lg:block rounded-lg shadow-2xl mr-24"
 						alt=""
 					/>
-					<div>
-						<h3 className="text-xl font-bold text-success">Appointment</h3>
+					<div className="p-3">
+						<h3 className="text-xl font-bold text-secondary">Appointment</h3>
 						<h1 className="text-4xl font-bold">Make an appointment Today</h1>
 						<p className="py-6">
 							It is a long established fact that a reader will be distracted by
