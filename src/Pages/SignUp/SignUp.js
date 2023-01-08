@@ -12,6 +12,7 @@ const SignUp = () => {
 	} = useForm();
 	const { createUser, updateUserName } = useContext(AuthContext);
 	const [signUpError, setSignUpError] = useState("");
+
 	const handleSignUp = (data) => {
 		setSignUpError("");
 		createUser(data?.email, data?.password)
