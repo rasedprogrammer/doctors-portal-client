@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvier";
 
@@ -9,15 +10,25 @@ const SignUp = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const { createUser } = useContext(AuthContext);
+	const { createUser, updateUserName } = useContext(AuthContext);
+	const [signUpError, setSignUpError] = useState("");
 	const handleSignUp = (data) => {
-		createUser(data.email, data.password)
+		setSignUpError("");
+		createUser(data?.email, data?.password)
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
+				toast("User Created Successfully.");
+				const userInfo = {
+					displayName: data.name,
+				};
+				updateUserName(userInfo)
+					.then(() => {})
+					.catch((err) => console.log(err));
 			})
 			.catch((error) => {
 				console.log(error);
+				setSignUpError(error?.message);
 			});
 		console.log(data);
 	};
@@ -82,6 +93,7 @@ const SignUp = () => {
 						type="submit"
 						value="Sign Up"
 					/>
+					{signUpError && <p className="text-red-600">{signUpError}</p>}
 				</form>
 				<p className="mt-3">
 					Already Have An Account{" "}

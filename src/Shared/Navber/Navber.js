@@ -28,7 +28,10 @@ const Navber = () => {
 			</li>
 			{user?.uid ? (
 				<li>
-					<button onClick={handleSignOut}>Sign Out</button>
+					<>
+						<Link to="/dashboard">Dashboard</Link>
+						<button onClick={handleSignOut}>Sign Out</button>
+					</>
 				</li>
 			) : (
 				<li>
