@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvier";
 
 const Login = () => {
-	const { register, handleSubmit } = useForm();
+	const { login } = useContext(AuthContext);
+	const {
+		register,
+		formState: { errors },
+		handleSubmit,
+	} = useForm();
+	const [loginError, setLoginError] = useState();
 	const handleLogin = (data) => {
+		setLoginError("");
+		login(data.email, data.password)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+			})
+			.catch((err) => {
+				console.log(err);
+				setLoginError(err?.message);
+			});
 		console.log(data);
 	};
 	return (
@@ -18,10 +35,16 @@ const Login = () => {
 						</label>
 						<input
 							type="email"
-							{...register("email")}
+							{...register("email", { required: "Email Address is required" })}
+							aria-invalid={errors.email ? "true" : "false"}
 							placeholder="Name"
 							className="input input-bordered w-full"
 						/>
+						{errors.email && (
+							<p className="text-red-600" role="alert">
+								{errors.email?.message}
+							</p>
+						)}
 					</div>
 					<div className="form-control w-full">
 						<label className="label">
@@ -29,10 +52,21 @@ const Login = () => {
 						</label>
 						<input
 							type="password"
-							{...register("password")}
+							{...register("password", {
+								required: "Password Is Required",
+								minLength: {
+									value: 6,
+									message: "Password Must Be 6 Characters or Longer",
+								},
+							})}
 							placeholder="Name"
 							className="input input-bordered w-full"
 						/>
+						{errors.password && (
+							<p className="text-red-600" role="alert">
+								{errors.password?.message}
+							</p>
+						)}
 						<label className="label">
 							<span className="label-text-alt">Forgot Password</span>
 						</label>
@@ -42,6 +76,9 @@ const Login = () => {
 						type="submit"
 						value="Login"
 					/>
+					{loginError && (
+						<p className="text-red-600 mt-3 text-center">{loginError}</p>
+					)}
 				</form>
 				<p className="mt-3">
 					New to Doctors Portal{" "}

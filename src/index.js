@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "react-day-picker/dist/style.css";
+import AuthProvier from "./context/AuthProvier";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<App />
+		<AuthProvier>
+			<App />
+		</AuthProvier>
 	</React.StrictMode>
 );
 
