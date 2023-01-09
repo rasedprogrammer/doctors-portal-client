@@ -14,6 +14,7 @@ const PrivateRoute = ({ children }) => {
 				<div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
 			</div>
 		);
+		// return <h1>Loading...</h1>;
 	}
 	return <Navigate state={{ form: location }} replace></Navigate>;
 };
