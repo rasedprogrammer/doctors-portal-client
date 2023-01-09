@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../context/AuthProvier";
 
-const BookingModal = ({ treatment, setTreatment, selectedDate }) => {
+const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
 	const { name, slots } = treatment; // treatment is appointment options
 	const { user } = useContext(AuthContext);
 	const date = format(selectedDate, "PPP");
@@ -39,6 +39,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate }) => {
 					</div>;
 					setTreatment(null);
 					toast.success("Booking Confirm");
+					refetch();
 				}
 			})
 			.catch((error) => {

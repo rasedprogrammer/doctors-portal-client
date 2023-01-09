@@ -9,7 +9,7 @@ const AvailableAppointment = ({ selectedDate }) => {
 	const [treatment, setTreatment] = useState(null);
 	const date = format(selectedDate, "PPP");
 
-	const { data: appointmentOptions = [] } = useQuery({
+	const { data: appointmentOptions = [], refetch } = useQuery({
 		queryKey: ["appointmentOptions", date],
 		queryFn: async () => {
 			const res = await fetch(
@@ -56,6 +56,7 @@ const AvailableAppointment = ({ selectedDate }) => {
 					treatment={treatment}
 					selectedDate={selectedDate}
 					setTreatment={setTreatment}
+					refetch={refetch}
 				></BookingModal>
 			)}
 		</div>
