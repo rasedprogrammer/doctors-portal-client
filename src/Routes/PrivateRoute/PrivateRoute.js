@@ -10,13 +10,13 @@ const PrivateRoute = ({ children }) => {
 	}
 	if (loading) {
 		return (
-			<div class=" flex justify-center items-center">
-				<div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+			<div className=" flex justify-center items-center">
+				<div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
 			</div>
 		);
 		// return <h1>Loading...</h1>;
 	}
-	return <Navigate state={{ form: location }} replace></Navigate>;
+	return <Navigate to="/login" state={{ form: location }} replace></Navigate>;
 };
 
 export default PrivateRoute;
